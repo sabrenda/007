@@ -14,10 +14,10 @@
 
 int		ft_atoi(const char *str)
 {
-	int		i;
-	int		znak;
-	int		res;
-	
+	int	i;
+	int	znak;
+	int	res;
+
 	i = 0;
 	res = 0;
 	znak = 1;
