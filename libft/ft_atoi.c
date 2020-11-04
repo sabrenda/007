@@ -1,33 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sabrenda <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/31 18:55:32 by sabrenda          #+#    #+#             */
-/*   Updated: 2020/11/01 16:41:11 by sabrenda         ###   ########.fr       */
+/*   Created: 2020/10/31 17:13:37 by sabrenda          #+#    #+#             */
+/*   Updated: 2020/11/03 23:31:43 by sabrenda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strdup(const char *str)
+int		ft_atoi(const char *str)
 {
-	char	*cp;
 	int		i;
-
+	int		znak;
+	int		res;
+	
 	i = 0;
-	while (str[i])
+	res = 0;
+	znak = 1;
+	while ((str[i] >= 9 && str[i] <= 13) || str[i] == 32)
 		i++;
-	if (!(cp = (char *)malloc(sizeof(*cp) * i)))
-		return (NULL);
-	i = 0;
-	while (str[i])
+	if (str[i] == '-' || str[i] == '+')
 	{
-		cp[i] = str[i];
+		if (str[i] == '-')
+			znak = -1;
 		i++;
 	}
-	cp[i] = '\0';
-	return (cp);
+	while (str[i] >= '0' && str[i] <= '9')
+		res = res * 10 + (str[i++] - '0');
+	return ((res * znak));
 }

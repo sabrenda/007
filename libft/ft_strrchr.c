@@ -1,34 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sabrenda <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/31 15:43:49 by sabrenda          #+#    #+#             */
-/*   Updated: 2020/10/31 15:51:44 by sabrenda         ###   ########.fr       */
+/*   Created: 2020/11/02 23:29:38 by sabrenda          #+#    #+#             */
+/*   Updated: 2020/11/02 23:53:15 by sabrenda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char *ft_strnstr(const char *big ,const char *little ,size_t len)
+char	*ft_strrchr(const char *s, int c)
 {
 	int		i;
-	int		count;
-	size_t 	len2;
-	
-	count = 0;
+
 	i = 0;
-	len2 = (size_t)ft_strlen(little);
-	if (!(*little))
-		return ((char *)big);
-	count = ft_strlen(little);
-	while (big[i] && len-- >= len2)
-	{
-		if (ft_strncmp(big+i,little,count) == 0)
-			return ((char *)big+i);
+	while (s[i])
 		i++;
+	if (c == '\0')
+		return ((char *)s + i);
+	if (i == 0)
+		return (NULL);
+	while (i--)
+	{
+		if (s[i] == (unsigned char)c)
+			return ((char *)s + i);
 	}
 	return (NULL);
 }
