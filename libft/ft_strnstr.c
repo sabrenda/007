@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sabrenda <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: sabrenda <sabrenda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/31 15:43:49 by sabrenda          #+#    #+#             */
-/*   Updated: 2020/11/02 15:33:20 by sabrenda         ###   ########.fr       */
+/*   Updated: 2020/11/05 03:07:43 by sabrenda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,12 @@
 char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
 	int			i;
-	int			count;
+	size_t		count;
 	size_t		len2;
 
 	count = 0;
 	i = 0;
-	len2 = (size_t)ft_strlen(little);
+	len2 = ft_strlen(little);
 	if (!(*little))
 		return ((char *)big);
 	count = ft_strlen(little);
