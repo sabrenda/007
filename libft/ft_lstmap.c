@@ -1,31 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sabrenda <sabrenda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/05 01:26:28 by sabrenda          #+#    #+#             */
-/*   Updated: 2020/11/08 18:58:02 by sabrenda         ###   ########.fr       */
+/*   Created: 2020/11/08 16:28:39 by sabrenda          #+#    #+#             */
+/*   Updated: 2020/11/08 18:10:56 by sabrenda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strtrim(char const *s1, char const *set)
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	size_t		end;
-	size_t		start;
+	t_list	*new;
+	t_list	*start;
 
-	if (!s1 || !set)
+	if (!lst || !f || !del)
 		return (NULL);
-	start = 0;
-	end = ft_strlen(s1) - 1;
-	while (ft_strchr(set, s1[start]) != 0 && s1[start] != '\0')
-		start++;
-	if (s1[start] == '\0' || ft_strlen(s1) == 0)
-		return (ft_strdup(""));
-	while (ft_strchr(set, s1[end]) != 0)
-		end--;
-	return (ft_substr(s1, start, (end - start + 1)));
+	if (!(new = ft_lstnew(f(lst->content))))
+	{
+		return (NULL);
+	}
+	start = new;
+	while (lst)
+	{
+		if (!(new->next = ft_lstnew(f(lst->next->content))))
+		{
+			ft_lstclear(&start, del);
+			return (NULL);
+		}
+		lst = lst->next;
+		ft_lstadd_back(&start, new);
+	}
+	return (start);
 }

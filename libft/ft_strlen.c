@@ -6,7 +6,7 @@
 /*   By: sabrenda <sabrenda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/29 20:12:40 by sabrenda          #+#    #+#             */
-/*   Updated: 2020/11/05 02:57:35 by sabrenda         ###   ########.fr       */
+/*   Updated: 2020/11/08 17:44:46 by sabrenda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 size_t	ft_strlen(const char *str)
 {
-	size_t		i;
+	size_t		j;
 
-	i = 0;
-	while (str[i] != '\0')
-		i++;
-	return (i);
+	j = 0;
+	while (str[j] != '\0')
+		j++;
+	return (j);
 }

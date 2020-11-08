@@ -6,13 +6,11 @@
 /*   By: sabrenda <sabrenda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/31 18:20:37 by sabrenda          #+#    #+#             */
-/*   Updated: 2020/11/05 03:02:35 by sabrenda         ###   ########.fr       */
+/*   Updated: 2020/11/08 18:46:31 by sabrenda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int		ft_isprint(int ch)
 {
-	if (ch >= 32 && ch <= 126)
-		return (1);
-	return (0);
+	return (ch >= 32 && ch <= 126);
 }
