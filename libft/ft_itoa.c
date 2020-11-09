@@ -6,11 +6,12 @@
 /*   By: sabrenda <sabrenda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/06 19:20:19 by sabrenda          #+#    #+#             */
-/*   Updated: 2020/11/06 22:48:58 by sabrenda         ###   ########.fr       */
+/*   Updated: 2020/11/09 20:55:49 by sabrenda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include "stdio.h"
 
 int		sizelen(int num)
 {
@@ -51,4 +52,9 @@ char	*ft_itoa(int n)
 		num = num / 10;
 	}
 	return (str);
+}
+
+int main ()
+{
+	printf("%s", ft_itoa(-2147483648));
 }

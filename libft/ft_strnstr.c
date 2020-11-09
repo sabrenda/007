@@ -6,11 +6,12 @@
 /*   By: sabrenda <sabrenda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/31 15:43:49 by sabrenda          #+#    #+#             */
-/*   Updated: 2020/11/09 19:03:09 by sabrenda         ###   ########.fr       */
+/*   Updated: 2020/11/09 22:17:01 by sabrenda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
 char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
@@ -31,4 +32,9 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 		i++;
 	}
 	return (NULL);
+}
+
+int main ()
+{
+	printf("%s", ft_strnstr("aaaaaaabbbaaaa", "", 14));
 }
