@@ -6,7 +6,7 @@
 /*   By: sabrenda <sabrenda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/09 15:19:10 by sabrenda          #+#    #+#             */
-/*   Updated: 2020/11/09 15:19:32 by sabrenda         ###   ########.fr       */
+/*   Updated: 2020/11/09 18:38:30 by sabrenda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@ int		words(char const *str, char c)
 		while (str[i] != c && str[i])
 		{
 			i++;
-			res++;
 		}
+		res++;
 	}
 	return (res);
 }
