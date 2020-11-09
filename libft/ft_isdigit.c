@@ -6,15 +6,11 @@
 /*   By: sabrenda <sabrenda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/31 18:14:08 by sabrenda          #+#    #+#             */
-/*   Updated: 2020/11/05 03:16:40 by sabrenda         ###   ########.fr       */
+/*   Updated: 2020/11/09 15:34:23 by sabrenda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
 int		ft_isdigit(int ch)
 {
-	if (ch >= '0' && ch <= '9')
-		return (1);
-	return (0);
+	return (ch >= '0' && ch <= '9');
 }

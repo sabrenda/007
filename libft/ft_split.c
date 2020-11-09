@@ -3,14 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sabrenda <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: sabrenda <sabrenda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/06 18:06:34 by sabrenda          #+#    #+#             */
-/*   Updated: 2020/11/06 18:06:48 by sabrenda         ###   ########.fr       */
+/*   Created: 2020/11/09 15:19:10 by sabrenda          #+#    #+#             */
+/*   Updated: 2020/11/09 15:19:32 by sabrenda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+char	**ft_free(char **str, size_t i)
+{
+	while (i-- > 0)
+		free(str[i]);
+	free(str);
+	return (NULL);
+}
 
 int		words(char const *str, char c)
 {
@@ -34,9 +42,9 @@ int		words(char const *str, char c)
 
 char	**memory(char **str, char const *s, char c)
 {
-	int		i;
-	int		memory;
-	int		words;
+	int			i;
+	int			memory;
+	size_t		words;
 
 	i = 0;
 	words = 0;
@@ -53,7 +61,7 @@ char	**memory(char **str, char const *s, char c)
 		if (memory != 0)
 		{
 			if (!(str[words] = (char *)malloc(sizeof(char) * (memory + 1))))
-				return (NULL);
+				return (ft_free(str, words));
 			words++;
 		}
 	}
@@ -100,7 +108,8 @@ char	**ft_split(char const *s, char c)
 	word = words(s, c);
 	if (!(str = (char **)malloc(sizeof(char *) * (word + 1))))
 		return (NULL);
-	str = memory(str, s, c);
+	if (!(str = memory(str, s, c)))
+		return (NULL);
 	paste(str, s, c);
 	return (str);
 }

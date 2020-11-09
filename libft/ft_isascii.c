@@ -6,13 +6,11 @@
 /*   By: sabrenda <sabrenda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/31 18:20:13 by sabrenda          #+#    #+#             */
-/*   Updated: 2020/11/05 03:02:44 by sabrenda         ###   ########.fr       */
+/*   Updated: 2020/11/09 15:29:27 by sabrenda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int		ft_isascii(int ch)
 {
-	if (ch >= 0 && ch <= 127)
-		return (1);
-	return (0);
+	return (ch >= 0 && ch <= 127);
 }

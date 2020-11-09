@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: sabrenda <sabrenda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/08 16:28:39 by sabrenda          #+#    #+#             */
-/*   Updated: 2020/11/08 18:10:56 by sabrenda         ###   ########.fr       */
+/*   Created: 2020/11/09 15:16:45 by sabrenda          #+#    #+#             */
+/*   Updated: 2020/11/09 15:16:46 by sabrenda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,19 +20,21 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	if (!lst || !f || !del)
 		return (NULL);
 	if (!(new = ft_lstnew(f(lst->content))))
-	{
 		return (NULL);
-	}
 	start = new;
 	while (lst)
 	{
-		if (!(new->next = ft_lstnew(f(lst->next->content))))
+		if (lst->next)
 		{
-			ft_lstclear(&start, del);
-			return (NULL);
+			if (!(new = ft_lstnew(f(lst->next->content))))
+			{
+				ft_lstclear(&start, del);
+				return (NULL);
+			}
+			ft_lstadd_back(&start, new);
 		}
 		lst = lst->next;
-		ft_lstadd_back(&start, new);
 	}
+	new->next = NULL;
 	return (start);
 }

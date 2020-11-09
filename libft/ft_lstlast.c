@@ -6,7 +6,7 @@
 /*   By: sabrenda <sabrenda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/08 16:28:34 by sabrenda          #+#    #+#             */
-/*   Updated: 2020/11/08 17:46:45 by sabrenda         ###   ########.fr       */
+/*   Updated: 2020/11/09 15:38:30 by sabrenda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,6 @@ t_list	*ft_lstlast(t_list *lst)
 		return (NULL);
 	last = lst;
 	while (last->next != NULL)
-	{
 		last = last->next;
-	}
 	return (last);
 }
