@@ -6,7 +6,7 @@
 /*   By: sabrenda <sabrenda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/31 15:43:49 by sabrenda          #+#    #+#             */
-/*   Updated: 2020/11/08 19:16:40 by sabrenda         ###   ########.fr       */
+/*   Updated: 2020/11/09 19:03:09 by sabrenda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	count = 0;
 	i = 0;
 	len2 = ft_strlen(little);
-	if (!(*little))
+	if (!little)
 		return ((char *)big);
 	count = ft_strlen(little);
 	while (big[i] && len-- >= len2)
