@@ -6,35 +6,33 @@
 /*   By: sabrenda <sabrenda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/31 15:43:49 by sabrenda          #+#    #+#             */
-/*   Updated: 2020/11/09 22:17:01 by sabrenda         ###   ########.fr       */
+/*   Updated: 2020/11/11 16:13:41 by sabrenda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
 char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
-	int			i;
+	size_t		i;
+	size_t		count_l;
+	size_t		count_b;
 	size_t		count;
-	size_t		len2;
 
-	count = 0;
 	i = 0;
-	len2 = ft_strlen(little);
-	if (!little)
+	if (little[i] == '\0')
 		return ((char *)big);
-	count = ft_strlen(little);
-	while (big[i] && len-- >= len2)
+	count_l = ft_strlen(little);
+	count_b = ft_strlen(big);
+	count = len;
+	if (count_b < count_l)
+		return (NULL);
+	while (big[i] && count_l <= len && i < count)
 	{
-		if (ft_strncmp(big + i, little, count) == 0)
+		if (ft_strncmp(big + i, little, count_l) == 0)
 			return ((char *)big + i);
 		i++;
+		len--;
 	}
 	return (NULL);
-}
-
-int main ()
-{
-	printf("%s", ft_strnstr("aaaaaaabbbaaaa", "", 14));
 }

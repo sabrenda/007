@@ -14,7 +14,7 @@
 
 char	**ft_free(char **str, size_t i)
 {
-	while (i-- > 0)
+	while (0 < i--)
 		free(str[i]);
 	free(str);
 	return (NULL);
@@ -101,7 +101,7 @@ char	**ft_split(char const *s, char c)
 	char			**str;
 	unsigned int	word;
 
-	if (!s || !c)
+	if (!s)
 		return (NULL);
 	word = words(s, c);
 	if (!(str = (char **)malloc(sizeof(char *) * (word + 1))))
